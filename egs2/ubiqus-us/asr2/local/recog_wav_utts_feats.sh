@@ -31,6 +31,7 @@ debugmode=1
 verbose=1      # verbose option
 nj=2
 batch_size=1
+ctc_weight=0.5
 
 # feature configuration
 do_delta=false
@@ -108,6 +109,7 @@ if [ ${stage} -le 2 ] && [ ${stop_stage} -ge 3 ]; then
 	  	--ngpu $ngpu \
 	  	--beam_size 5 \
 	  	--batch_size $batch_size \
+	  	--ctc_weight $ctc_weight \
 	  	--num_workers $split_nj
 
     for f in token token_int text score; do
